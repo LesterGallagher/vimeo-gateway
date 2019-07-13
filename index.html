@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Leef Intens Vimeo Gateway</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(window.location.href);
+            if (results == null)
+                return "";
+            else
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        
+        document.write('<iframe frameborder="0" '
+            + 'src="' + getParameterByName('url') +  '"'
+            + 'style="height: ' + getParameterByName('height') +  'px"'
+            + 'data-provider="vimeo"></iframe>');
+    </script>
+    
+</body>
+
+</html>
